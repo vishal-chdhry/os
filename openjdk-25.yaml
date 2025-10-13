@@ -12,12 +12,6 @@ package:
     provides:
       - ${{package.name}}-jmods
 
-var-transforms:
-  - from: ${{package.version}}
-    match: _beta
-    replace: +
-    to: mangled-package-version
-
 environment:
   contents:
     packages:
@@ -54,7 +48,7 @@ pipeline:
   - uses: git-checkout
     with:
       repository: https://github.com/openjdk/jdk25u
-      tag: jdk-${{vars.mangled-package-version}}-ga
+      tag: jdk-${{package.version}}-ga
       expected-commit: 6c48f4ed707bf0b15f9b6098de30db8aae6fa40f
 
   - working-directory: /home/build/googletest
