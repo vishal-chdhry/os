@@ -1,7 +1,7 @@
 package:
   name: falco-no-driver
   version: "0.42.1"
-  epoch: 1 # CVE-2025-61729
+  epoch: 2 # GHSA-59jp-pj84-45mr
   description: Cloud Native Runtime Security
   copyright:
     - license: Apache-2.0
@@ -61,6 +61,11 @@ pipeline:
       tag: ${{package.version}}
       expected-commit: 4ea91437df18290f33ac4dca6414b4bdbcba5892
       recurse-submodules: true
+
+  - uses: go/bump
+    with:
+      deps: |-
+        github.com/sigstore/fulcio@v1.8.5
 
   - name: Prepare output dirs
     runs: mkdir skeleton-build build
