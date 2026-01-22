@@ -1,7 +1,7 @@
 package:
   name: argo-workflows-3.7
   version: "3.7.7"
-  epoch: 0 # GHSA-cfpf-hrx2-8rv6
+  epoch: 1 # GHSA-cv78-6m8q-ph82
   description: Workflow engine for Kubernetes.
   copyright:
     - license: Apache-2.0
@@ -49,6 +49,11 @@ pipeline:
       go install bou.ke/staticfiles@dd04075
       # Pack yarn UI into go binary
       /home/build/.cache/go/bin/staticfiles -o server/static/files.go ui/dist/app
+
+  - uses: go/bump
+    with:
+      deps: |-
+        github.com/argoproj/argo-workflows/v3@v3.7.8
 
   - uses: go/build
     with:
