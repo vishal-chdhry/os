@@ -23,3 +23,6 @@ patches:
   - groupId: org.cyclonedx
     artifactId: cyclonedx-core-java
     version: 11.0.1
+  - groupId: ch.qos.logback
+    artifactId: logback-core
+    version: 1.5.25
